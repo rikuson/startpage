@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { OAuth, Rest } from '../../lib/TodoistApi';
+import { Rest } from '../../lib/TodoistApi';
 
 export const readTasks = createAsyncThunk('todoist/readTasks', async (_, thunk) => {
   const state = thunk.getState();
@@ -14,11 +14,6 @@ export const completeTask = createAsyncThunk('todoist/completeTask', async (id, 
   return state.todoist.tasks.filter(task => task.id !== Number(id));
 });
 
-export const authorize = createAsyncThunk('todoist/authorize', async query => {
-  const api = new OAuth();
-  return await api.fetchToken(query.code);
-});
-
 export const readProjects = createAsyncThunk('todoist/readProjects', async (_, thunk) => {
   const state = thunk.getState();
   const api = new Rest(state.todoist.token);
@@ -28,18 +23,14 @@ export const readProjects = createAsyncThunk('todoist/readProjects', async (_, t
 const todoistSlice = createSlice({
   name: 'todoist',
   initialState: {
-    token: '',
+    token: process.env.REACT_APP_TODOIST_API_TOKEN,
     projects: [],
     tasks: [],
-    iv: '',
     activeProject: null,
   },
   reducers: {
     setToken: (state, action) => {
       state.token = action.payload;
-    },
-    setIV: (state, action) => {
-      state.iv = action.payload;
     },
     removeToken: (state, action) => {
       state.token = '';
@@ -61,9 +52,6 @@ const todoistSlice = createSlice({
     [completeTask.rejected]: (state, action) => {
       state.token = '';
     },
-    [authorize.fulfilled]: (state, action) => {
-      state.token = action.payload;
-    },
     [readProjects.fulfilled]: (state, action) => {
       state.projects = action.payload;
       if (!state.projects.some(project => project.id === state.activeProject)) {
@@ -78,7 +66,6 @@ const todoistSlice = createSlice({
 
 export const {
   setToken,
-  setIV,
   removeToken,
   openProject,
 } = todoistSlice.actions;
