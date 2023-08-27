@@ -63,8 +63,7 @@ function Alert() {
 function Content(props) {
   return (
     <div className="position-relative">
-      <h1 className="display-3">Browxin</h1>
-      <p className="lead">Browse in cross-platform!</p>
+      <h1 className="display-3 mb-4">Startpage</h1>
       <CommandLine />
       <ul className="nav nav-tabs" role="tablist">
         {App.WIDGETS.map((props, i) => <WidgetNav active={i === 0} key={i} id={`widget-${i}-tab`} href={'#widget-' + i} {...props} />)}
