@@ -1,0 +1,9 @@
+{
+  "name": "Startpage",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "description": "Redirect newtab to startpage",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
