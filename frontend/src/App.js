@@ -64,7 +64,7 @@ function Content(props) {
   return (
     <div className="position-relative">
       <h1 className="display-3 mb-4">Startpage</h1>
-      <CommandLine />
+      <CommandLine autoFocus={true} />
       <ul className="nav nav-tabs" role="tablist">
         {App.WIDGETS.map((props, i) => <WidgetNav active={i === 0} key={i} id={`widget-${i}-tab`} href={'#widget-' + i} {...props} />)}
       </ul>
