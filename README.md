@@ -4,7 +4,7 @@
 
 ## Install
 
-### macOS
+### macOS - Safari
 
 Apache is installed by default on macOS.  
 Run this command to enable auto-start.
@@ -20,3 +20,17 @@ cd frontend
 npm run build
 sudo rsync -r build/ /Library/WebServer/Documents/
 ```
+
+Set `http://localhost` as startpage.
+
+### macOS - Chrome
+
+Build frontend resources.
+
+```shell
+cd frontend
+npm run build
+```
+
+Chrome doesn't provide the way to customize newtab.  
+To change newtab page, install `frontend/build` as extension.
