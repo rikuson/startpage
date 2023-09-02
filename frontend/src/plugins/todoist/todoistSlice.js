@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Rest } from '../../lib/TodoistApi';
+import config from '../../config.json';
 
 export const readTasks = createAsyncThunk('todoist/readTasks', async (_, thunk) => {
   const state = thunk.getState();
@@ -23,7 +24,7 @@ export const readProjects = createAsyncThunk('todoist/readProjects', async (_, t
 const todoistSlice = createSlice({
   name: 'todoist',
   initialState: {
-    token: process.env.REACT_APP_TODOIST_API_TOKEN,
+    token: config.todoist.apiToken,
     projects: [],
     tasks: [],
     activeProject: null,

@@ -1,9 +1,10 @@
 import assert from 'assert';
 import { Rest } from './TodoistApi';
+import config from '../config.json';
 
 it('Should return task array', async () => {
-  assert.ok(process.env.REACT_APP_TODOIST_API_TOKEN);
-  const todoistApi = new Rest(process.env.REACT_APP_TODOIST_API_TOKEN);
+  assert.ok(config.todoist.apiToken);
+  const todoistApi = new Rest(config.todoist.apiToken);
   const tasks = await todoistApi.readTasks();
   expect(Array.isArray(tasks)).toBe(true);
 });

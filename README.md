@@ -17,6 +17,7 @@ Build and deploy frontend resources.
 
 ```shell
 cd frontend
+vim config.json # Add configuration file
 npm run build
 sudo rsync -r build/ /Library/WebServer/Documents/
 ```
@@ -29,8 +30,19 @@ Build frontend resources.
 
 ```shell
 cd frontend
+vim config.json # Add configuration file
 npm run build
 ```
 
 Chrome doesn't provide the way to customize newtab.  
 To change newtab page, install `frontend/build` as extension.
+
+## Configuration
+
+```json
+{
+  "todoist": {
+    "apiToken": "<YOUR API TOKEN>"
+  }
+}
+```
