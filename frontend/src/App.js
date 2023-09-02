@@ -3,6 +3,8 @@ import 'bootstrap';
 import './App.scss';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSliders } from '@fortawesome/free-solid-svg-icons';
 import { themes, actions } from './lib/theme';
 import CommandLine from './CommandLine';
 import { TodoistWidget, TodoistWidgetNav } from './plugins/todoist';
@@ -72,7 +74,7 @@ function Content(props) {
         {App.WIDGETS.map((props, i) => <Widget className={i === 0 ? 'active show' : ''} key={i} id={'widget-' + i} {...props} />)}
       </div>
       <button type="button" className="config" onClick={props.onToggle}>
-        <i className="icon-equalizer" />
+        <FontAwesomeIcon icon={faSliders} />
       </button>
     </div>
   );

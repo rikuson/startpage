@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faGoogle, faWikipediaW, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { setText } from './commandLineSlice';
 
 function DropdownItem(props) {
@@ -11,11 +13,10 @@ function DropdownItem(props) {
 class CommandLine extends Component {
   static get SEARCH_ENGINES() {
     return [
-      { name: 'Google', icon: <i className="icon-google" />, url: 'https://www.google.com/search', param: 'q' },
-      { name: 'Twitter', icon: <i className="icon-twitter" />, url: 'https://twitter.com/search', param: 'q' },
-      { name: 'Wikipedia', icon: <i className="icon-wikipedia" />, url: 'https://en.wikipedia.org/w/index.php', param: 'search' },
-      { name: 'YouTube', icon: <i className="icon-youtube" />, url: 'https://www.youtube.com/results', param: 'search_query' },
-      { name: 'PHP Manual', icon: <i className="icon-php" />, url: 'https://www.php.net/manual-lookup.php', param: 'pattern' },
+      { name: 'Google', icon: <FontAwesomeIcon icon={faGoogle} />, url: 'https://www.google.com/search', param: 'q' },
+      { name: 'Twitter', icon: <FontAwesomeIcon icon={faTwitter} />, url: 'https://twitter.com/search', param: 'q' },
+      { name: 'Wikipedia', icon: <FontAwesomeIcon icon={faWikipediaW} />, url: 'https://en.wikipedia.org/w/index.php', param: 'search' },
+      { name: 'YouTube', icon: <FontAwesomeIcon icon={faYoutube} />, url: 'https://www.youtube.com/results', param: 'search_query' },
       { name: 'MDN', icon: <i className="icon-mdn" />, url: 'https://developer.mozilla.org/ja/search', param: 'q' },
     ];
   }
