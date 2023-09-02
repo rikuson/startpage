@@ -30,12 +30,6 @@ const todoistSlice = createSlice({
     activeProject: null,
   },
   reducers: {
-    setToken: (state, action) => {
-      state.token = action.payload;
-    },
-    removeToken: (state, action) => {
-      state.token = '';
-    },
     openProject: (state, action) => {
       state.activeProject = action.payload;
     },
@@ -44,14 +38,8 @@ const todoistSlice = createSlice({
     [readTasks.fulfilled]: (state, action) => {
       state.tasks = action.payload;
     },
-    [readTasks.rejected]: (state, action) => {
-      state.token = '';
-    },
     [completeTask.fulfilled]: (state, action) => {
       state.tasks = action.payload;
-    },
-    [completeTask.rejected]: (state, action) => {
-      state.token = '';
     },
     [readProjects.fulfilled]: (state, action) => {
       state.projects = action.payload;
@@ -59,14 +47,10 @@ const todoistSlice = createSlice({
         state.activeProject = state.projects[0].id;
       }
     },
-    [readProjects.rejected]: (state, action) => {
-      state.token = '';
-    },
   }
 });
 
 export const {
-  setToken,
   removeToken,
   openProject,
 } = todoistSlice.actions;

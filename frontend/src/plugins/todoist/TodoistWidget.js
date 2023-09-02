@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  setToken,
   completeTask,
   readTasks,
 } from './todoistSlice';
@@ -36,13 +35,11 @@ function TaskList(props) {
 
 export default TodoistWidget = connect(
   state => ({
-    token: state.todoist.token,
     projects: state.todoist.projects,
     tasks: state.todoist.tasks,
     activeProject: state.todoist.activeProject,
   }),
   dispatch => ({
-    setToken: token => dispatch(setToken(token)),
     completeTask: taskId => dispatch(completeTask(taskId)),
     readTasks: () => dispatch(readTasks()),
   })

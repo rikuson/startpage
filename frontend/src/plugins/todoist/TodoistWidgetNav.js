@@ -7,9 +7,7 @@ import {
 
 class TodoistWidgetNav extends Component {
   componentDidMount() {
-    if (this.props.token) {
-      this.props.readProjects();
-    }
+    this.props.readProjects();
   }
   render() {
     const dropdownAttr = {
@@ -41,7 +39,6 @@ class TodoistWidgetNav extends Component {
 
 export default TodoistWidgetNav = connect(
   state => ({
-    token: state.todoist.token,
     projects: state.todoist.projects,
     activeProject: state.todoist.activeProject,
   }),
