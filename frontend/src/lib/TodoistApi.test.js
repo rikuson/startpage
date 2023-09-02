@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { Rest } from './TodoistApi';
+import Rest from './TodoistApi';
 import config from '../config.json';
 
 it('Should return task array', async () => {

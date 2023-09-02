@@ -1,6 +1,6 @@
 import bent from 'bent';
 
-class Rest {
+export default class Rest {
   static get URL() {
     return 'https://api.todoist.com';
   }
@@ -54,5 +54,3 @@ class Rest {
     this.header = { 'Authorization': 'Bearer ' + token };
   }
 }
-
-export { Rest };

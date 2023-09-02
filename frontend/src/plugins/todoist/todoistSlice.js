@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Rest } from '../../lib/TodoistApi';
+import Rest from '../../lib/TodoistApi';
 import config from '../../config.json';
 
 export const readTasks = createAsyncThunk('todoist/readTasks', async (_, thunk) => {
