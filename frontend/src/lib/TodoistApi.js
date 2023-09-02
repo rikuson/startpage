@@ -47,8 +47,8 @@ export default class Rest {
     return request(`/rest/v2/tasks/${taskId}/close`, null, this.header);
   }
   deleteTask(taskId) {
-    const request = bent(Rest.URL, 'DELETE', null, 203);
-    return request('/rest/v2/tasks/' + taskId, null, this.header);
+    const request = bent(Rest.URL, 'DELETE', null, 204);
+    return request(`/rest/v2/tasks/${taskId}`, null, this.header);
   }
   setHeader(token) {
     this.header = { 'Authorization': 'Bearer ' + token };

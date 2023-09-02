@@ -15,6 +15,13 @@ export const completeTask = createAsyncThunk('todoist/completeTask', async (id, 
   return state.todoist.tasks.filter(task => task.id !== id);
 });
 
+export const deleteTask = createAsyncThunk('todoist/deleteTask', async (id, thunk) => {
+  const state = thunk.getState();
+  const api = new Rest(state.todoist.token);
+  await api.deleteTask(id);
+  return state.todoist.tasks.filter(task => task.id !== id);
+});
+
 export const readProjects = createAsyncThunk('todoist/readProjects', async (_, thunk) => {
   const state = thunk.getState();
   const api = new Rest(state.todoist.token);
@@ -39,6 +46,9 @@ const todoistSlice = createSlice({
       state.tasks = action.payload;
     },
     [completeTask.fulfilled]: (state, action) => {
+      state.tasks = action.payload;
+    },
+    [deleteTask.fulfilled]: (state, action) => {
       state.tasks = action.payload;
     },
     [readProjects.fulfilled]: (state, action) => {
