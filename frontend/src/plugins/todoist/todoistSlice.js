@@ -12,7 +12,7 @@ export const completeTask = createAsyncThunk('todoist/completeTask', async (id, 
   const state = thunk.getState();
   const api = new Rest(state.todoist.token);
   await api.completeTask(id);
-  return state.todoist.tasks.filter(task => task.id !== Number(id));
+  return state.todoist.tasks.filter(task => task.id !== id);
 });
 
 export const readProjects = createAsyncThunk('todoist/readProjects', async (_, thunk) => {
