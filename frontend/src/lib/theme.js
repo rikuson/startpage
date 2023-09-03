@@ -38,8 +38,4 @@ const slice = createSlice({
 
 const { actions, reducer } = slice;
 
-export {
-  themes,
-  actions,
-  reducer,
-};
+export { themes, actions, reducer };

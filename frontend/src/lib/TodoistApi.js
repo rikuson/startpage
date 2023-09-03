@@ -51,6 +51,6 @@ export default class Rest {
     return request(`/rest/v2/tasks/${taskId}`, null, this.header);
   }
   setHeader(token) {
-    this.header = { 'Authorization': 'Bearer ' + token };
+    this.header = { Authorization: 'Bearer ' + token };
   }
 }

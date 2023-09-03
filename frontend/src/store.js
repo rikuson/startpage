@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { save, load } from "redux-localstorage-simple";
+import { save, load } from 'redux-localstorage-simple';
 import logger from 'redux-logger';
 import { todoistReducer } from './plugins/todoist';
 import { reducer as theme } from './lib/theme';
@@ -12,5 +12,6 @@ export default configureStore({
     theme,
   },
   preloadedState: load(),
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(save(), logger),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(save(), logger),
 });

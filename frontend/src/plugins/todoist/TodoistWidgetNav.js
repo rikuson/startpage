@@ -1,9 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  openProject,
-  readProjects,
-} from './todoistSlice';
+import { openProject, readProjects } from './todoistSlice';
 
 class TodoistWidgetNav extends Component {
   componentDidMount() {
@@ -28,9 +25,22 @@ class TodoistWidgetNav extends Component {
     };
     return (
       <>
-        <a {...(this.props.active ? dropdownAttr : buttonAttr)} ><i className="icon-todoist" /> Todoist</a>
+        <a {...(this.props.active ? dropdownAttr : buttonAttr)}>
+          <i className="icon-todoist" /> Todoist
+        </a>
         <div className="dropdown-menu">
-          {this.props.projects.map(project => <button key={project.id} className={'dropdown-item' + (project.id === this.props.activeProject ? ' active' : '')} onClick={() => this.props.openProject(project.id)}>{project.name}</button>)}
+          {this.props.projects.map((project) => (
+            <button
+              key={project.id}
+              className={
+                'dropdown-item' +
+                (project.id === this.props.activeProject ? ' active' : '')
+              }
+              onClick={() => this.props.openProject(project.id)}
+            >
+              {project.name}
+            </button>
+          ))}
         </div>
       </>
     );
@@ -38,12 +48,12 @@ class TodoistWidgetNav extends Component {
 }
 
 export default TodoistWidgetNav = connect(
-  state => ({
+  (state) => ({
     projects: state.todoist.projects,
     activeProject: state.todoist.activeProject,
   }),
-  dispatch => ({
-    openProject: projectId => dispatch(openProject(projectId)),
+  (dispatch) => ({
+    openProject: (projectId) => dispatch(openProject(projectId)),
     readProjects: () => dispatch(readProjects()),
-  })
+  }),
 )(TodoistWidgetNav);

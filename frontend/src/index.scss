@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 body {
   margin: 0;
@@ -21,9 +21,12 @@ code {
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?uh5k6x') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?uh5k6x') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?uh5k6x##{$icomoon-font-family}') format('svg');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?uh5k6x')
+      format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?uh5k6x')
+      format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?uh5k6x##{$icomoon-font-family}')
+      format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -46,12 +49,11 @@ i {
 
 .icon-todoist {
   &:before {
-    content: $icon-todoist; 
+    content: $icon-todoist;
   }
 }
 .icon-mdn {
   &:before {
-    content: $icon-mdn; 
+    content: $icon-mdn;
   }
 }
-
